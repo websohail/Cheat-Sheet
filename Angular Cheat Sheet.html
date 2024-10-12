@@ -1,0 +1,111 @@
+* cd.. for moving back one directory
+* moving from C:\ drive to E:\ drive simply type E: and press enter.
+* To get the list of child directories simply type dir and press enter.
+* to check your node js version simply type node -v and press enter
+
+<!-- Installing Angular CLI -- this will install angular 16 if you want latest version simply remove @16.1.6-->
+npm install @angular/cli@16.1.6 --location=global
+
+<!-- To check your Angular CLI version simply type ng v amd press enter -->
+ng v
+
+<!-- syntax for creating new project -->
+ng new project name
+
+<!-- syntax for installing bootstrap 4 or 5 to project you can use any below syntax -->
+npm install --save bootstrap@4 
+or 
+npm install bootstrap@5.3
+
+<!-- then in angular.json file in styles array add this path of your bootstrap -->
+"node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+<!-- or in styles.css file also you can add bootstrap path siply add below line in styles.css file -->
+@import "~bootstrap/dist/css/bootstrap.min.css"
+
+
+<!-- To start Project in browser -->
+ng serve 
+
+<!-- syntax for creating component -->
+ng generate component componentName 
+ng g c componentName 
+
+<!-- syntax for creating component and skiping the test file-->
+ng generate component componentName --skip-tests
+ng g c componentName --skip-tests
+
+<!-- Creating interface, below command will create models folder and then your interface.ts file -->
+ng generate interface models/interfaceName
+ng g i models/interfaceName
+
+<!-- Creating class, below command will create models folder and then your class className.ts file -->
+ng generate class models/className
+ng g class models/className
+
+
+<!-- Creating Module  -->
+ng generate module ModuleName
+ng g module ModuleName
+
+<!-- Creating component in side specific Module -->
+ng generate component componentName --module=ModuleName
+ng g c componentName --module=ModuleName
+
+<!-- Creating Service -->
+ng generate service ServiceName
+ng g service ServiceName
+
+<!-- if you want to create service inside any folder then see below command -->
+ng generate service folderName/ServiceName
+ng g service folderName/ServiceName
+
+<!-- Creating routes, add Path and component name in curly bracket-->
+const routes: Routes = [
+  {path:"", component:HomeComponent},
+  {path:"new", component:ReservationFormComponent}
+];
+<!-- Adding Rounter link -->
+<button [routerLink]="['/new']">Create New Reservation</button>
+
+<!-- Adding Route with parameter -->
+{path:"edit/:id", component:ReservationFormComponent}
+
+<!-- Adding Router link with parameter -->
+<button [routerLink]="['/edit',reservation.id]">Edit</button>
+
+
+<!-- Creating Environments, Below command will create Environments where you can add constants. -->
+ng generate environments
+ng g environments
+
+<!-- Switching to angular environments -->
+ng serve --configuration=development
+
+<!-- adding Angular Material to angular project -->
+ng add @angular/material
+
+<!-- To use angular material responsive grid system, which angular material dont have, we need to install angular flex-layout then we can have responsive grid layout on site -->
+npm install @angular/flex-layout
+npm i -s @angular/flex-layout @angular/cdk 
+
+
+
+
+
+<!-- Adding your project to git hub -->
+1. go to github.com/websohail
+2. create new repository from top right plus sign.
+3. open CMD or terminal in VSCode
+4. go to project path cd path\to\your\project
+5. run command which after comma =>, git init
+6. run command which after comma =>, git add .
+7. run command which after comma =>, git commit -m "Initial commit"
+8. now run the command which is on github new repository page you just created it would look something like this =>
+git remote add origin https://github.com/websohail/angular-appointment-app.git
+9. then run command which after comma =>, git branch -M main
+10. then run command which after comma =>, git push -u origin main 
+
+<!-- Dummy Json Server Link -->
+https://www.npmjs.com/package/json-server
+

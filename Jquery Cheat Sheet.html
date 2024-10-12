@@ -1,0 +1,469 @@
+$(function(){
+	// Jquery code goes here
+
+	// $(".red-box").fadeOut(1000); 
+	// $(".green-box").fadeOut(2000);
+	// $(".blue-box").fadeOut(3000);
+	// $(".red-box").fadeIn(1000);
+	// $(".green-box").fadeIn(5000);
+	// $(".blue-box").fadeIn(6000);
+	// $(".blue-box").fadeTo(6000, 0.5);
+	// $(".red-box").fadeToggle();
+	// $(".red-box").toggle();
+	// $(".red-box").hide(1000);
+	// $(".red-box").show(1000);
+	// $(".red-box").slideUp(1000);
+	// $(".red-box").slideDown(1000);
+	// $("p").hide();
+	// $("p").slideDown(1000);
+	// $("p").slideToggle(1000);
+
+	$(".uploaded-audio").click(function(e){
+	if($(e.target).hasClass('fa-play-circle')){
+	     $(e.target).toggleClass("fa-pause-circle-o");
+	    } 
+	});
+	if (!boldness.is(e.target) && boldness.has(e.target).length === 0)
+        {
+           $(".textcolorbox").hide();
+        }  
+
+		<!-- hover function	 -->
+        $(".input-group").hover(function () {
+    if($(this).children(".input-group-addon").hasClass("handle")){
+        $(this).children(".input-group-addon").removeClass("handle");
+    }
+}, function () {
+    if($(this).children(".input-group-addon").children().hasClass("ti-move")){
+        $(this).children(".input-group-addon").children(".ti-move").parent().addClass("handle");
+    }
+});
+
+		<!-- Targeting Element Attributes -->
+	$('[data-toggle="tooltip"]').on('click', function () {
+    	$(this).tooltip('hide');
+	});
+ 
+	
+	// $(".blue-box").animate({
+	// 	"margin-left": "+=200px"
+	// },2000);
+	// $(".blue-box").animate({
+	// 	"margin-left": "-=200px"
+	// },2000);
+	// $(".blue-box").animate({
+	// 	"margin-left": "+=200px",
+	// 	"opacity": "0"
+	// },2000);
+	// $("p").animate({
+	// 	"font-size": "20px"
+	// },2000);
+	
+	// $(".red-box").fadeOut(1000).fadeIn(5000);
+	// $(".green-box").delay(1000).fadeOut(1000).fadeIn(6000);
+	// $(".blue-box").delay(2000).fadeOut(1000).fadeIn(7000);
+	// $(".lightBox").delay(500).fadeOut(1000);
+	
+	
+	// $("p:first").css("background-color", "red");
+	// $("p:last").css("background-color", "red");
+	// $("p:even").css("background-color", "red");
+	// $("p:odd").css("background-color", "red");
+	// $("p,h1,h2").css("background-color", "red");
+	// $("input:text").css("background-color", "red");
+	// $("input:password").css("background-color", "red");
+	// $("ul").children("li").css("background-color", "red");
+	// $("div").parents().css("background-color", "red");
+	// $("div").parent().css("background-color", "red");
+	// $("p").siblings("h2").css("background-color", "red"); 
+	// $("p").prev().css("background-color", "red"); 
+	// $("p").next().css("background-color", "red"); 
+	// $("div").children(":header").css("background-color", "red");
+	// $("div").find("h2").css("background-color", "red"); 
+	// $("ul").find("li").filter(":even").css("background-color", "red");
+	// $("li").filter(":even").css("background-color", "red");
+	// $("li").not(":first").css("background-color", "red");
+	
+
+	// $("ul ul").append("<li>this is using append</li>");
+	// $("<li>this is this is using appendTo</li>").appendTo("ul ul");
+	// $("ul ul").prepend("<li>this is using prepend</li>");
+	// $("<li>this is using prependTo</li>").prependTo("ul ul");
+	// $("ul").after("<div>this is after function</div>");
+	// $("ul").before("<div>this is before function</div>");
+	
+	// $("ul:first").before(function(){
+	// 	return "<div class='bg-info'>this is before function using function </div>"
+	// });
+	
+	// $(".blue-box").before($('.red-box'));
+
+	// $("li").replaceWith("<li class='list-group-item'>hey there</li>");
+	
+	// $("li").replaceWith(function(){
+	// 	return "<li class='list-group-item'>replaced with function</li>";
+	// });
+
+	// $(".red-box, .blue-box").replaceWith("<div class='green-box'>real gren</div>");
+
+	// $("<div class='green-box'>real gren</div>").replaceAll(".red-box, .blue-box");
+	// $("li").remove();
+	// $("li").detach();
+	// $("li").empty();
+
+	// var li = $("li");
+	// console.log(li.attr("class"));
+	// li.attr("class" , "list-group-item bg-info");
+	// console.log(li);
+
+	// $("li").prop();
+	// $("input:text").val();
+	// $("input:text").val("here is input value");
+
+	// var galleryImages = $(".gallery").find("img").first();
+	// var images = [
+	// 	"images/laptop-mobile_small.jpg",
+	// 	"images/laptop-on-table_small.jpg",
+	// 	"images/people-office-group-team_small.jpg"
+	// ];
+	// var i = 0;
+	// setInterval(function(){
+	// 	i = (i + 1) % images.length; // 0,1,2,0,1,2,0,1,....
+	// 	galleryImages.fadeOut(function(){
+	// 		$(this).attr("src", images[i]);
+	// 		$(this).fadeIn();
+	// 	});
+	// 	console.log(galleryImages.attr("src"));
+	// },2000);
+
+	// $(".gallery").css("display","none");
+
+	// $("li").addClass("bg-info text-white");
+	// $("li").removeClass("text-white");
+
+	// $("li:first").text("this is first li");
+	// // $("li:first").text("<strong>Sohail</strong> this is first li");
+	// $("li:last").html("<strong>Sohail</strong> this is first li");
+
+	// this add some text after the present text 
+	// var li = $("li:first");
+	// li.html(li.html() + " this text is appened");
+	// $("#btn").click(function(e){
+	// 	console.log(e);
+	// 	alert("hey there hello");
+	// });
+	// $(".red-box").click(function(e){
+	// 	$(this).fadeTo(500,0.5);
+
+	// 	e.preventDefault();
+	// });
+	// $("#hover").hover(function(e){
+	// 	// alert("button was hovered");
+	// 	$(this).text("i was hovered");
+	// 	$(".green-box").fadeOut(500).fadeIn(500);
+	// 	$(".red-box").fadeOut(1000).fadeIn(1000);
+	// 	$(".blue-box").fadeOut(2000).fadeIn(2000);
+
+	// 	e.preventDefault();
+	// });
+
+
+	// var bluebox = $(".blue-box");
+	// var realtext = $(".blue-box").text();
+	// bluebox.mouseenter(function(){
+	// 	$(this).text("i was hovred");
+	// });
+	// bluebox.mouseleave(function(){
+	// 	$(this).text(realtext);
+	// });
+
+
+	// $("ul").on("click","li", function(e){
+	// 	$(this).slideUp(1000);
+	// });
+	// $("ul:first").append("<li class='list-group-item'>just appended li to ul ul</li>");
+
+	// $("body").on("mouseenter", "li", function(){
+	// 	$(this).css("color", "red");
+	// });
+
+
+	// $("#btn").click({
+	// 	name:"sohail"
+	// },function(e){
+	// 	greeting(e.data);
+	// });
+	// function greeting(data){
+	// 	name = data.name || "people";
+	// 	alert("welcome " + name);
+	// }
+
+	// var gallery = $(".gallery").find("img");
+	// gallery.css("opacity","0.7");
+	// gallery.mouseenter(function(){
+	// 	$(this).fadeTo("500", "1");
+	// });
+	// gallery.mouseleave(function(){
+	// 	$(this).fadeTo("500", "0.7");
+	// });
+
+	// $("html").keydown(function(e){
+	// 	if(e.which === 190){
+	// 		$(".blue-box").animate({
+	// 			"margin-left" : "+=20"
+	// 		},50);
+
+	// 	}
+	// 	if(e.which === 188){
+	// 		$(".blue-box").animate({
+	// 			"margin-left" : "-=20"
+	// 		},50);
+
+	// 	}
+	// 	console.log(e.which);
+	// });
+
+	// $("#form").submit(function(e){
+	// 	var name     = $("#name").val(); 
+	// 	var email    = $("#email").val(); 
+	// 	var password = $("#password").val(); 
+	// 	var message  = $("#message").val(); 
+	// 	var checkbox = $("#checkbox").is(":checked"); 
+
+	// 	validateNameField(name, e);
+	// 	validatepassword(password, e); 
+	// 	validateMessage(message, e);
+	// 	validateCheckbox(checkbox, e);
+	// });
+
+
+
+
+	// Ajax Fetch API
+
+	var apiURL = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?"; 
+	$.getJSON(apiURL,{
+		tags: "sun, beach",
+		tagmode: "any",
+		format: "json"
+	}).done(function(data){
+		console.log(data);
+		$.each(data.items, function(index, item){
+			console.log(item);
+			$("<img>").attr("src", item.media.m).appendTo("#fliker");
+			if(index == 4){
+				return false;
+			}
+		});
+	}).fail(function(){
+		console.log("ajax call failed for flickr api");
+	}).always(function(){
+		console.log("flicker is best");
+	})
+
+
+
+	var pakeApiUrl = "http://pokeapi.co/api/v2/generation/1";
+	var pakemonByName = "http://pokeapi.co/api/v2/pokemon/";
+	$.getJSON(pakeApiUrl).done(function(data){
+		console.log(data);
+		$.each(data.pokemon_species, function(index, pokemon){
+			var name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+			var link = $("a").attr("id", pokemon.name).attr("href", "#").append($("<strong>").text(name));
+			var par = $("<p>").html("Pokemon Species no. " + (index + 1) + " is " ).append(link);
+			link.click(function(e){
+				$.getJSON(pakemonByName + pokemon.name).done(function(details){
+					console.log(details);
+					var pokemonDiv = $("pokemon-details");
+					pokemonDiv.empty();
+					pokemonDiv.append("<h2>"+ name +"</h2>");
+					pokemonDiv.append("<img src='"+ details.sprites.front_defult + "'  />");
+				});
+				e.preventDefault();
+			});
+
+			par.appendTo("#pokemon");
+		});
+	}).fail(function(){
+		console.log("ajax call failed for pokemon api");
+	}).always(function(){
+		console.log("Pokemon is awesom");
+	});
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+	// function validateNameField(name, e){
+	// 	if(!isVadateName(name) || name === ""){
+	// 		$("#name-feedback").text("please enter atleast two character").css("color", "red");
+	// 		e.preventDefault();
+	// 	}else{
+	// 		$("#name-feedback").text("");
+	// 	}
+	// }
+	// function validatepassword(password, e){
+	// 	if(!isVadatepass(password) || password === ""){
+	// 		$("#password-feedback").text("The password should have 6 character and should contain number").css("color", "red");
+	// 		e.preventDefault();
+	// 	}else{
+	// 		$("#password-feedback").text("");
+	// 	}
+	// }
+	// function validateMessage(message, e){
+	// 	if(!isVadatemessage(message)){
+	// 		$("#message-feedback").text("please enter Message").css("color", "red");
+	// 		e.preventDefault();
+	// 	}else{
+	// 		$("#message-feedback").text("");
+	// 	}
+	// }
+	// function validateCheckbox(checkbox, e){
+	// 	if(!checkbox){
+	// 		$("#checkbox-feedback").text("please agree to this").css("color", "red");
+	// 		e.preventDefault();
+	// 	}else{
+	// 		$("#checkbox-feedback").text("");
+	// 	}
+	// }
+	// function isVadateName(name){
+	// 	return name.length >= 2;
+	// }
+
+	
+	// function isVadatepass(password){
+	// 	return password.length >= 6 && /.*[0-9].*/.text(password);
+	// }
+	
+	// function isVadatemessage(message){
+	// 	return message.trim() != "";
+	// }
+	
+
+
+<!-- Dot Each Function -->
+	$(".navbar-header .navbar-top-links").on('click', '.navbar-top-links li a', function(e){
+                     var top_menu_items = $(".navbar-top-links li a");
+                     top_menu_items.each(function(){
+                         console.log("i m clicked");
+                         if(!$(this).hasClass('active')){
+                             $(this).addClass('active');
+                           }else{
+                               $(this).removeClass('active');
+                           }
+                     });
+                });
+<!--Another Dot Each Function -->                
+$('#main_div').children('div').each(function(){
+  console.log($(this).attr('id'));
+});
+
+<script>
+    $(document).ready(function() {
+        $(window).on('load', function () {
+           $('#leadGames').DataTable();
+        });
+    });
+</script>
+
+Redirection Code on server
+<?php
+// 301 Moved Permanently
+header("Location: https://docs.google.com/document/d/17E47U8gDSWoz5n8nybqxSwRlCVDNUSD5DRTq4FpqfIs/edit", true, 301);
+exit();
+?>
+
+EverGreen Timer
+<script>
+Date.prototype.addHours= function(h){
+    this.setHours(this.getHours()+h);
+    return this;
+}
+var countDownDate = new Date().addHours(4);
+
+var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("mins").innerHTML = minutes;
+    document.getElementById("secs").innerHTML = seconds;
+    
+    
+    if (distance < 0) 
+    {
+        clearInterval(x);
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("mins").innerHTML = "00";
+        document.getElementById("secs").innerHTML = "00";
+    } else {
+   
+    }
+}, 1000);
+</script>
+
+
+fixed Date Timer
+<script>
+var countDownDate = new Date("September 21, 2020 15:29:00").getTime();
+
+var x = setInterval(function() {
+
+    var now = new Date().getTime();
+    
+    var distance = countDownDate - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("mins").innerHTML = minutes;
+    document.getElementById("secs").innerHTML = seconds;
+    
+    if (distance < 0) 
+    {
+        clearInterval(x);
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("mins").innerHTML = "00";
+        document.getElementById("secs").innerHTML = "00";
+       
+    } else {
+   
+    }
+}, 1000);
+</script>
+
+
+iframe example
+$("#RSIFrame").contents().find(".row-ansWithImg").children().removeClass("col-xs-3");
+
+media query for safari
+
+ @media only screen  and (-webkit-min-device-pixel-ratio: 0),
+  and (max-width: 425px),
+  and (min-resolution: 192dpi){
+
+  == canvas object to Json == 
+  var canvas_json = canvas.toJSON();
+    var objs = canvas_json.objects;
+    console.log(objs);

@@ -1,0 +1,564 @@
+This code comes in style.css file
+/*
+Theme Name: Simple
+Author: Sohail Ahmed
+Author URI: https://zubii.in
+Description: This is a very simple blogging theme
+Version: 1.0
+*/
+========================================================
+
+Pages Name And There Purpose
+1. index.php == main homepage file
+2. style.css == style your website here
+3. functions.php == Functions for displaying widgets displaying thubnails and menu and lot more comes here
+4. header.php == header section comes here
+5. footer.php ==  footer section comes here
+6. page.php == all pages comes here of the website
+7. sigle.php == single post page comes here
+8. archive.php
+9. front-page.php
+
+========================================================
+Functions page
+
+<?php 
+	
+	// require_once('wp-bootstrap-navwalker.php');
+	require_once get_template_directory() . '/wp-bootstrap-navwalker.php';
+
+	function theme_support(){
+		add_theme_support('post-thumbnails')	;
+		add_theme_support('custom-logo');
+		register_nav_menus(array(
+			'primary' => __('Primary Menu')
+		));
+	}
+	add_action('after_setup_theme', 'theme_support');
+
+
+	function init_widgets($id){
+		register_sidebar(array(
+			'name'          => 'Content Region 1',
+			'id'            => 'content-region-1',
+			'before_widget' => '<section class="content-region-1 pt-5 pb-5 bg-success text-center text-white"><div class="container"><div class="row"><div class="col-md-12">',
+			'after_widget'  => '</div></div></div></section>',
+			'before_title'  => '<h1>',
+			'after_title'   => '</h1>'
+		));
+
+		register_sidebar(array(
+			'name'          => 'Content Region 2',
+			'id'            => 'content-region-2',
+			'before_widget' => '<section class="content-region-2 pt-5 pb-4 bg-light "><div class="container"><div class="row">',
+			'after_widget'  => '</div></div></section>',
+			'before_title'  => '<h1>',
+			'after_title'   => '</h1>'
+		));
+
+		register_sidebar(array(
+			'name'          => 'Footer 1',
+			'id'            => 'footer-1',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		));
+
+		register_sidebar(array(
+			'name'          => 'Footer 2',
+			'id'            => 'footer-2',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		));
+
+		register_sidebar(array(
+			'name'          => 'Footer 3',
+			'id'            => 'footer-3',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		));
+
+		register_sidebar(array(
+			'name'          => 'Sidebar',
+			'id'            => 'sidebar',
+			'before_widget' => '<div class="card sidebar-widget">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => '<div class="card-header pb-0 pt-1 bg-success"><h3 class="card-title text-white">',
+			'after_title'   => '</h3></div><div class="card-body">'
+		));
+		
+	}
+	add_action('widgets_init','init_widgets');
+
+
+
+
+	// ==============================================================
+
+	//creating options in customizer section
+	function customize_theme($wp_customize){
+		//Banner Section
+		$wp_customize->add_section('banner',array(
+			'title'       => __('Banner', 'Business'),
+			'description' => sprintf(__('Options for homepage banner', 'Business')),
+			'priority'    => 150
+		));
+
+		//Heading Setting
+		$wp_customize->add_setting('banner_heading',array(
+			'default'       => _x('Banner Heading', 'Business'),
+			'type'    => 'theme_mod'
+		));
+
+		//Heading Control
+		$wp_customize->add_control('banner_heading',array(
+			'label'       => __('Heading', 'Business'),
+			'section'    => 'banner',
+			'priority'    => 50
+		));
+		//Banner Text
+		$wp_customize->add_setting('banner_text',array(
+			'default'       => _x('Welcome to Wordpress Business theme. This theme uses the twitter Bootstrap 4 Framework ad can be customized as you like.', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('banner_text',array(
+			'label'       => __('Text', 'Business'),
+			'section'    => 'banner',
+			'priority'    => 200
+		));
+
+		//Banner Button
+		//Button Text
+		$wp_customize->add_setting('banner_btn_text',array(
+			'default'   =>_x('Read More', 'Business'),
+			'type'      =>'theme_mod'
+		));
+		$wp_customize->add_control('banner_btn_text',array(
+			'label'     => __('Button Text', 'Business' ),  
+			'section'   =>'banner',
+			'priority'  =>50
+		));
+
+		//Button URL
+		$wp_customize->add_setting('banner_btn_url',array(
+			'default'   =>_x('http://zubii.in', 'Business'),
+			'type'      =>'theme_mod'
+		));
+		$wp_customize->add_control('banner_btn_url',array(
+			'label'     => __('Button URL', 'Business' ),  
+			'section'   =>'banner',
+			'priority'  =>50
+		));
+
+		//Background Image 
+		$wp_customize->add_setting('banner_image',array(
+			'default'   =>get_bloginfo('template_directory'). '/img/banner.jpg',
+			'type'      =>'theme_mod'
+		));
+		$wp_customize->add_control(new Wp_Customize_Image_Control(
+			$wp_customize, 'banner_image', array(
+				'label'    => __('Background Image', 'Business'),
+				'section'  => 'banner',
+				'settings' =>  'banner_image'
+			)
+		)); 
+		//End of banner Section
+
+
+		
+//==============================================================================
+		
+		//Boxes Section 
+		$wp_customize->add_section('boxes',array(
+			'title'       => __('Boxes', 'Business'),
+			'description' => sprintf(__('Options for homepage boxes', 'Business')),
+			'priority'    => 130,
+		));
+		//BOX 1
+		// Box 1 Heading setting 
+		$wp_customize->add_setting( 'box1_heading', array(
+			'default'       => _x('Box 1 Heading', 'Business'),
+			'type'    => 'theme_mod'
+		));
+		$wp_customize->add_control( 'box1_heading', array(
+			'label'       => __('Box one heading', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20,
+		));
+		//Box 1 Text
+		$wp_customize->add_setting('box1_text', array(
+			'default'       => _x('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloribus animi eius excepturi, illo sit..', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('box1_text', array(
+			'label'       => __('Box 1 Text', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		)); 
+		//Box 1 Icon
+		$wp_customize->add_setting('box1_icon', array(
+			'default'       => _x('bar-chart', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('box1_icon', array(
+			'label'       => __('Box 1 Icon', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20,
+		));
+
+		//BOX 2
+		// Box 2 Heading setting 
+		$wp_customize->add_setting('box2_heading',array(
+			'default'       => _x('Box 2 Heading', 'Business'),
+			'type'    => 'theme_mod'
+		));
+		$wp_customize->add_control('box2_heading',array(
+			'label'       => __('Box Two Heading', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		));
+		//Box 2 Text
+		$wp_customize->add_setting('box2_text',array(
+			'default'       => _x('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloribus animi eius excepturi, illo sit..', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('box2_text',array(
+			'label'       => __('Box 2 Text', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		)); 
+		//Box 2 Icon
+		$wp_customize->add_setting('box2_icon',array(
+			'default'       => _x('code', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('box2_icon',array(
+			'label'       => __('Box 2 Icon', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		));
+
+		//BOX 3
+		// Box 3 Heading setting 
+		$wp_customize->add_setting('box3_heading',array(
+			'default'       => _x('Box 3 Heading', 'Business'),
+			'type'    => 'theme_mod'
+		));
+		$wp_customize->add_control('box3_heading',array(
+			'label'       => __('Box Three heading', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		));
+		//Box 3 Text
+		$wp_customize->add_setting('box3_text',array(
+			'default'       => _x('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda doloribus animi eius excepturi, illo sit..', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('box3_text',array(
+			'label'       => __('Box 3 Text', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		)); 
+		//Box 3 Icon
+		$wp_customize->add_setting('box3_icon',array(
+			'default'       => _x('desktop', 'Business'),
+			'type'    => 'theme_mod'
+		));	
+		$wp_customize->add_control('box3_icon',array(
+			'label'       => __('Box 3 Icon', 'Business'),
+			'section'    => 'boxes',
+			'priority'    => 20
+		));
+
+	}
+	add_action('customize_register', 'customize_theme');
+	
+
+ ?>
+============================================================================
+
+
+
+
+
+ Single Post Page
+
+<?php get_header(); ?>
+	<?php if(have_posts()): ?>
+		<?php while(have_posts()): the_post(); ?>
+	<section class=" bg-success py-3 text-white my-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class=" pl-5"><?php the_title(); ?></h1>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="">
+		<div class="container">
+			<div class="row">
+				<?php if(is_active_sidebar('sidebar')): ?>
+					<div class="col-md-8  card card-body">
+				<?php else: ?>
+					<div class="col-md-12">
+				<?php endif; ?>	
+				
+							<article class="post">
+								<div class="row img border border-left-0 border-right-0 border-top-0 pb-5 pt-2">
+									<div class="col-md-12">
+										<?php if(has_post_thumbnail()): ?>
+											<?php the_post_thumbnail(); ?>
+										<?php endif; ?>	
+										<p class="border border-left-0 border-right-0 py-2 mt-4">
+											By <span class="text-success"><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php the_author(); ?></a> </span><?php the_time('F j, Y g:i a'); ?><span class="text-success"> <?php 
+												$categories = get_the_category();
+												$separator = ", ";
+												$output = '';
+												if($categories){
+													foreach($categories as $category){
+														$output .= '<a href="'.get_category_link($category->term_id).'">'.$category->cat_name .'</a>'. $separator;
+													}
+												}
+												echo trim($output, $separator);
+											 ?></span>
+										</p>
+										
+										<p class="text-justify"><?php the_content(); ?></p>
+									</div>
+								</div>
+							</article>
+						<?php endwhile; ?>
+					<?php endif; ?>		
+					<?php comments_template(); ?>	
+					</div>
+			
+					<div class="col-md-4">
+							<?php if(is_active_sidebar('sidebar')): ?>
+							<?php dynamic_sidebar('sidebar'); ?>
+							<?php endif; ?>	
+					</div>
+					
+			</div>
+		</div>
+	</section>
+
+	
+
+	<?php if(is_active_sidebar('content-region-1')): ?>
+		<?php dynamic_sidebar('content-region-1'); ?>
+	<?php endif; ?>
+
+	<?php if(is_active_sidebar('content-region-2')): ?>
+		<?php dynamic_sidebar('content-region-2'); ?>
+	<?php endif; ?>
+
+
+<?php get_footer(); ?>
+
+
+
+=============================================================================================
+
+pages
+
+<?php get_header(); ?>
+	<?php if(have_posts()): ?>
+		<?php while(have_posts()): the_post(); ?>
+	<section class=" bg-success py-3 text-white my-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class=" pl-5"><?php the_title(); ?></h1>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="">
+		<div class="container">
+			<div class="row">
+				<?php if(is_active_sidebar('sidebar')): ?>
+					<div class="col-md-8  card card-body">
+				<?php else: ?>
+					<div class="col-md-12">
+				<?php endif; ?>	
+				
+							<article class="page">
+								<div class="row img border border-left-0 border-right-0 border-top-0 pb-5 pt-2">
+									<div class="col-md-12">
+										<?php if(has_post_thumbnail()): ?>
+											<?php the_post_thumbnail(); ?>
+										<?php endif; ?>	
+										<p class="border border-left-0 border-right-0 py-2 mt-4">
+											By <span class="text-success"><a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php the_author(); ?></a> </span><?php the_time('F j, Y g:i a'); ?><span class="text-success"> <?php 
+												$categories = get_the_category();
+												$separator = ", ";
+												$output = '';
+												if($categories){
+													foreach($categories as $category){
+														$output .= '<a href="'.get_category_link($category->term_id).'">'.$category->cat_name .'</a>'. $separator;
+													}
+												}
+												echo trim($output, $separator);
+											 ?></span>
+										</p>
+										
+										<p class="text-justify"><?php the_content(); ?></p>
+									</div>
+								</div>
+							</article>
+						<?php endwhile; ?>
+					<?php endif; ?>		
+					
+					</div>
+			
+					<div class="col-md-4">
+							<?php if(is_active_sidebar('sidebar')): ?>
+							<?php dynamic_sidebar('sidebar'); ?>
+							<?php endif; ?>	
+					</div>
+					
+			</div>
+		</div>
+	</section>
+
+	
+
+	<?php if(is_active_sidebar('content-region-1')): ?>
+		<?php dynamic_sidebar('content-region-1'); ?>
+	<?php endif; ?>
+
+	<?php if(is_active_sidebar('content-region-2')): ?>
+		<?php dynamic_sidebar('content-region-2'); ?>
+	<?php endif; ?>
+
+
+<?php get_footer(); ?>
+=============================================================================
+
+Header page
+
+<!DOCTYPE HTML>
+<html <?php language_attributes(); ?>>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="<?php bloginfo('charset'); ?>"/>
+		<meta name="viewpoint" content="width-device-width, initial-scale=1.0"/>
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" />
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.css" />
+		
+		<title><?php bloginfo('name'); ?></title>
+		<?php wp_head(); ?>
+
+		<style type="text/css">
+			.bg-img{
+				background: url(<?php echo get_theme_mod('banner_image'); ?>) 0 -150px;
+			}
+		</style>
+	</head>
+<body <?php body_class(); ?>>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3  pt-3">
+					<!-- <?php
+						if(function_exists('the_custom_logo')){
+							the_custom_logo();
+						}
+					?> -->
+					<?php if(has_custom_logo()): ?>
+						<?php the_custom_logo(); ?>
+						<?php else: ?>
+							<h1><?php bloginfo('name'); ?></h1>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-9">
+					<nav class="navbar navbar-expand-md">
+						<button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="navbar-collapse collapse" id="mainMenu">
+							<!-- <ul class="nav nav-pills ml-auto pt-3"> -->
+								<?php 
+									wp_nav_menu(array(
+										'theme_location' => 'primary',
+										'depth'          => 2,
+										'container'      => false,
+										'menu_class' => 'nav nav-pills ml-auto pt-3',
+										'fallback'   => 'WP_Bootstrap_Navwalker::fallback',
+										'walker'     => new wp_bootstrap_navwalker()
+									));
+								 ?>
+								 <!-- <li class="nav-item"><a href="index.html" class="nav-link bg-success active">Home</a></li>
+								<li class="nav-item"><a href="blog.html" class="nav-link text-success">Blog</a></li>
+								<li class="nav-item"><a href="about.html" class="nav-link text-success">About</a></li> -->
+							<!-- </ul> -->
+						</div>
+					</nav> 
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+
+=============================================================================
+Footer page
+
+	<footer class="bg-dark p-4 text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<?php if(is_active_sidebar('footer-1')): ?>
+						<?php dynamic_sidebar('footer-1'); ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-4">
+					<?php if(is_active_sidebar('footer-2')): ?>
+						<?php dynamic_sidebar('footer-2'); ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-4">
+					<?php if(is_active_sidebar('footer-3')): ?>
+						<?php dynamic_sidebar('footer-3'); ?>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<footer class="bg-black  p-4 text-center text-white border border-bottom-0 border-left-0 border-right-0">
+		<p>Copyright &copy; Business Theme 2018</p>
+	</footer>	
+	<?php wp_footer(); ?>
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+		<script src="<?php bloginfo('template_directory'); ?>/js/jquery-3.3.1.min.js"></script>
+		
+		<script src="<?php bloginfo('template_directory'); ?>/js/bootstrap.js"></script>
+		
+</body>
+</html>
+
+================================================================================================= 
+
+
+
+
+
+
+
