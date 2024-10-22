@@ -622,3 +622,20 @@ $('.count_div p span').each(function () {
 	    });
 	});
 ==========================================================
+
+<!-- when you scroll page one line like progress bar will increase and decrease on page scroll-up or scroll-down -->
+<!-- HTML -->
+<div id="progress-bar"></div>
+<!-- CSS -->
+#progress-bar {position: absolute;top: 0;left: 0;height: 2px;background: #0868ad;width: 0;transition: width 0.2s}
+<!-- JS -->
+$(document).ready(function(){
+		$(window).on('scroll', function() {
+	        var scrollTop = $(this).scrollTop();
+	        var docHeight = $(document).height();
+	        var windowHeight = $(window).height();
+	        var scrollPercent = (scrollTop / (docHeight - windowHeight)) * 100;
+	        $('#progress-bar').css('width', scrollPercent + '%');
+	    });
+	});
+
