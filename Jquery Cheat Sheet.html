@@ -17,17 +17,30 @@ $(function(){
 	// $("p").hide();
 	// $("p").slideDown(1000);
 	// $("p").slideToggle(1000);
-
+==========================================================
 	$(".uploaded-audio").click(function(e){
 	if($(e.target).hasClass('fa-play-circle')){
 	     $(e.target).toggleClass("fa-pause-circle-o");
 	    } 
 	});
+	
+==========================================================	
 	if (!boldness.is(e.target) && boldness.has(e.target).length === 0)
         {
            $(".textcolorbox").hide();
-        }  
+        } 
 
+    $(document).on("click", function(event){
+    	var $trigger = $('#search_icon_div, #search_row');
+
+        if($trigger !== event.target && !$trigger.has(event.target).length ){
+            $('#search_row').removeClass('search_row_active');
+        }
+        if (!$(event.target).closest('.openModalBtn, .modal_box').length) {
+       		 $('.modal_box').hide();
+        }
+    });     
+==========================================================
 		<!-- hover function	 -->
         $(".input-group").hover(function () {
     if($(this).children(".input-group-addon").hasClass("handle")){
@@ -38,13 +51,14 @@ $(function(){
         $(this).children(".input-group-addon").children(".ti-move").parent().addClass("handle");
     }
 });
+==========================================================
 
 		<!-- Targeting Element Attributes -->
 	$('[data-toggle="tooltip"]').on('click', function () {
     	$(this).tooltip('hide');
 	});
  
-	
+==========================================================	
 	// $(".blue-box").animate({
 	// 	"margin-left": "+=200px"
 	// },2000);
@@ -58,13 +72,12 @@ $(function(){
 	// $("p").animate({
 	// 	"font-size": "20px"
 	// },2000);
-	
+==========================================================
 	// $(".red-box").fadeOut(1000).fadeIn(5000);
 	// $(".green-box").delay(1000).fadeOut(1000).fadeIn(6000);
 	// $(".blue-box").delay(2000).fadeOut(1000).fadeIn(7000);
 	// $(".lightBox").delay(500).fadeOut(1000);
-	
-	
+==========================================================	
 	// $("p:first").css("background-color", "red");
 	// $("p:last").css("background-color", "red");
 	// $("p:even").css("background-color", "red");
@@ -83,7 +96,7 @@ $(function(){
 	// $("ul").find("li").filter(":even").css("background-color", "red");
 	// $("li").filter(":even").css("background-color", "red");
 	// $("li").not(":first").css("background-color", "red");
-	
+==========================================================	
 
 	// $("ul ul").append("<li>this is using append</li>");
 	// $("<li>this is this is using appendTo</li>").appendTo("ul ul");
@@ -91,35 +104,36 @@ $(function(){
 	// $("<li>this is using prependTo</li>").prependTo("ul ul");
 	// $("ul").after("<div>this is after function</div>");
 	// $("ul").before("<div>this is before function</div>");
-	
+==========================================================
 	// $("ul:first").before(function(){
 	// 	return "<div class='bg-info'>this is before function using function </div>"
 	// });
-	
+==========================================================	
 	// $(".blue-box").before($('.red-box'));
-
+==========================================================
 	// $("li").replaceWith("<li class='list-group-item'>hey there</li>");
-	
+==========================================================	
 	// $("li").replaceWith(function(){
 	// 	return "<li class='list-group-item'>replaced with function</li>";
 	// });
-
+==========================================================
 	// $(".red-box, .blue-box").replaceWith("<div class='green-box'>real gren</div>");
-
+==========================================================
 	// $("<div class='green-box'>real gren</div>").replaceAll(".red-box, .blue-box");
+==========================================================
 	// $("li").remove();
 	// $("li").detach();
 	// $("li").empty();
-
+==========================================================
 	// var li = $("li");
 	// console.log(li.attr("class"));
 	// li.attr("class" , "list-group-item bg-info");
 	// console.log(li);
-
+==========================================================
 	// $("li").prop();
 	// $("input:text").val();
 	// $("input:text").val("here is input value");
-
+==========================================================
 	// var galleryImages = $(".gallery").find("img").first();
 	// var images = [
 	// 	"images/laptop-mobile_small.jpg",
@@ -137,14 +151,14 @@ $(function(){
 	// },2000);
 
 	// $(".gallery").css("display","none");
-
+==========================================================
 	// $("li").addClass("bg-info text-white");
 	// $("li").removeClass("text-white");
-
+==========================================================
 	// $("li:first").text("this is first li");
-	// // $("li:first").text("<strong>Sohail</strong> this is first li");
-	// $("li:last").html("<strong>Sohail</strong> this is first li");
-
+	// $("li:first").text("<strong>Sohail</strong> this is first li");
+	// $("li:last").html("<strong>Sohail</strong> this is last li");
+==========================================================
 	// this add some text after the present text 
 	// var li = $("li:first");
 	// li.html(li.html() + " this text is appened");
@@ -154,7 +168,7 @@ $(function(){
 	// });
 	// $(".red-box").click(function(e){
 	// 	$(this).fadeTo(500,0.5);
-
+==========================================================
 	// 	e.preventDefault();
 	// });
 	// $("#hover").hover(function(e){
@@ -163,11 +177,9 @@ $(function(){
 	// 	$(".green-box").fadeOut(500).fadeIn(500);
 	// 	$(".red-box").fadeOut(1000).fadeIn(1000);
 	// 	$(".blue-box").fadeOut(2000).fadeIn(2000);
-
 	// 	e.preventDefault();
 	// });
-
-
+==========================================================
 	// var bluebox = $(".blue-box");
 	// var realtext = $(".blue-box").text();
 	// bluebox.mouseenter(function(){
@@ -176,28 +188,28 @@ $(function(){
 	// bluebox.mouseleave(function(){
 	// 	$(this).text(realtext);
 	// });
-
-
+==========================================================
 	// $("ul").on("click","li", function(e){
 	// 	$(this).slideUp(1000);
 	// });
+==========================================================
 	// $("ul:first").append("<li class='list-group-item'>just appended li to ul ul</li>");
-
+	
 	// $("body").on("mouseenter", "li", function(){
 	// 	$(this).css("color", "red");
 	// });
-
-
+==========================================================
 	// $("#btn").click({
 	// 	name:"sohail"
 	// },function(e){
 	// 	greeting(e.data);
 	// });
+==========================================================	
 	// function greeting(data){
 	// 	name = data.name || "people";
 	// 	alert("welcome " + name);
 	// }
-
+==========================================================
 	// var gallery = $(".gallery").find("img");
 	// gallery.css("opacity","0.7");
 	// gallery.mouseenter(function(){
@@ -206,7 +218,7 @@ $(function(){
 	// gallery.mouseleave(function(){
 	// 	$(this).fadeTo("500", "0.7");
 	// });
-
+==========================================================
 	// $("html").keydown(function(e){
 	// 	if(e.which === 190){
 	// 		$(".blue-box").animate({
@@ -222,7 +234,7 @@ $(function(){
 	// 	}
 	// 	console.log(e.which);
 	// });
-
+==========================================================
 	// $("#form").submit(function(e){
 	// 	var name     = $("#name").val(); 
 	// 	var email    = $("#email").val(); 
@@ -235,9 +247,7 @@ $(function(){
 	// 	validateMessage(message, e);
 	// 	validateCheckbox(checkbox, e);
 	// });
-
-
-
+==========================================================
 
 	// Ajax Fetch API
 
@@ -260,8 +270,7 @@ $(function(){
 	}).always(function(){
 		console.log("flicker is best");
 	})
-
-
+==========================================================
 
 	var pakeApiUrl = "http://pokeapi.co/api/v2/generation/1";
 	var pakemonByName = "http://pokeapi.co/api/v2/pokemon/";
@@ -289,21 +298,8 @@ $(function(){
 	}).always(function(){
 		console.log("Pokemon is awesom");
 	});
-
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
+==========================================================
 
 	// function validateNameField(name, e){
 	// 	if(!isVadateName(name) || name === ""){
@@ -340,7 +336,7 @@ $(function(){
 	// function isVadateName(name){
 	// 	return name.length >= 2;
 	// }
-
+==========================================================
 	
 	// function isVadatepass(password){
 	// 	return password.length >= 6 && /.*[0-9].*/.text(password);
@@ -351,7 +347,7 @@ $(function(){
 	// }
 	
 
-
+==========================================================
 <!-- Dot Each Function -->
 	$(".navbar-header .navbar-top-links").on('click', '.navbar-top-links li a', function(e){
                      var top_menu_items = $(".navbar-top-links li a");
@@ -364,18 +360,103 @@ $(function(){
                            }
                      });
                 });
+
 <!--Another Dot Each Function -->                
 $('#main_div').children('div').each(function(){
   console.log($(this).attr('id'));
 });
 
-<script>
+==========================================================
+<script type="text/JavaScript">
     $(document).ready(function() {
         $(window).on('load', function () {
            $('#leadGames').DataTable();
         });
     });
 </script>
+==========================================================
+fix top menu when page is scrolled down
+
+var fixmeTop = $(".reportContentSec").offset().top;
+      $(window).scroll(function () {
+          var a = $(window).scrollTop();
+          if (a >= fixmeTop) {
+              $(".fixedtHeader").addClass("active")
+          } else {
+              $(".fixedHeader").removeClass("active")
+          }
+      });
+
+here is active class css
+.active{
+    display: block;
+    position: fixed;
+    animation: slide-down 1.2s;
+}
+==========================================================
+
+Toggle fix menu when page is at certain point of page only.
+
+var fixmeTop = $(".staticContentSec").offset().top;
+  $(window).scroll(function () {
+      var a = $(window).scrollTop();
+      if (a >= fixmeTop) {
+          $( ".bottomContactSec" ).addClass("active");
+          $('.bottomContactSec').toggleClass('active',(!isScrolledIntoView('footer')));
+      } else {
+          $( ".bottomContactSec" ).removeClass("active");
+      }
+  });
+
+  function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();    
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;    
+    var elemBottom = elemTop + $(elem).height();   
+
+    return ((elemTop < docViewBottom));
+  }      
+==========================================================
+Scrolling page to the top on click or on change event 
+
+// Scroll top button
+    var topScrollPosition = $(".connectToAnalyst").offset().top;
+      $(window).scroll(function () {
+          var a = $(window).scrollTop();
+          // footer sticky code
+          if (a >= topScrollPosition) {
+              $(".moveTop").addClass("moveTopShow");
+          } else {
+              $(".moveTop").removeClass("moveTopShow");
+          }
+      });
+
+      $(".moveTop").click(function() {
+            $('html,body').animate({
+                scrollTop: $("header").offset().top},
+                'slow');
+        }); 
+
+==========================================================
+Show hide code on click on specifi location
+
+$(document).on("click", function(event){
+    var $trigger = $('#dropdownmenu, #top-menu');
+    var $trigger1 = $('#search, #dropdownsearch');
+    if($trigger !== event.target && !$trigger.has(event.target).length ){
+        $('#dropdownmenu').removeClass('d-blockk');
+    }
+    if($trigger1 !== event.target && !$trigger1.has(event.target).length ){
+        $('#dropdownsearch').removeClass('d-search');
+    }
+    if(!$('#dropdownmenu').hasClass('d-blockk')){
+        $('#toggle_menu').removeClass('rotateMenuLines');
+    }           
+});
+
+
+==========================================================
 
 Redirection Code on server
 <?php
@@ -418,7 +499,7 @@ var x = setInterval(function() {
     }
 }, 1000);
 </script>
-
+==========================================================
 
 fixed Date Timer
 <script>
@@ -452,18 +533,92 @@ var x = setInterval(function() {
     }
 }, 1000);
 </script>
-
+==========================================================
 
 iframe example
 $("#RSIFrame").contents().find(".row-ansWithImg").children().removeClass("col-xs-3");
-
+==========================================================
 media query for safari
-
  @media only screen  and (-webkit-min-device-pixel-ratio: 0),
   and (max-width: 425px),
   and (min-resolution: 192dpi){
-
+ }
+==========================================================
   == canvas object to Json == 
   var canvas_json = canvas.toJSON();
     var objs = canvas_json.objects;
     console.log(objs);
+==========================================================
+
+Slider HTML
+<div class="slider-container">
+    <div class="slider-wrapper">
+        <div class="slider-item">
+        	<div class="s_item">
+        		<button class="cat_tab cat_tab_1 cat_tab_active">categ 1</button>
+        	</div>
+        </div>
+        <div class="slider-item">
+        	<div class="s_item">
+        		<button class="cat_tab cat_tab_2">categ 2</button>
+        	</div>
+        </div>
+    </div>
+    <button class="nav-button prev-button">&#8592;</button>
+    <button class="nav-button next-button">&#8594;</button>
+</div>
+
+<!-- Slider CSS -->
+.slider-container{position: relative;width: 100%;overflow: hidden;padding-top: 60px}
+.slider-wrapper{display: flex;transition: transform 0.5s ease}
+.slider-item{min-width: 25%;box-sizing: border-box}
+.slider-item .s_item{width: 90%;display: block;height: 100%;border-radius: 4px;padding:0px 0px 20px}
+.nav-button{position: absolute;top: -5%;color:#090f1d;background: #fff;border: none;padding: 10px;cursor: pointer;font-size: 40px}
+.prev-button{right: 56px}
+.next-button{right: 0}
+
+
+		// Slider Code JS
+		var $wrapper = $('.slider-wrapper');
+        var $items = $('.slider-item');
+        var itemCount = $items.length;
+        var itemsPerSlide = 4;
+        var totalSlides = itemCount;
+        var currentIndex = 0;
+        $('.next-button').click(function() {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateSlider();
+        });
+        $('.prev-button').click(function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1;
+            }
+            updateSlider();
+        });
+        function updateSlider() {
+            var offset = -currentIndex * 100 / itemsPerSlide;
+            $wrapper.css('transform', 'translateX(' + offset + '%)');
+        }
+==========================================================
+
+
+<!-- Couter Code from 0 to whatever number till animation you want -->
+<!-- ek div k andar p tag or span k andar apka number ayega -->
+$('.count_div p span').each(function () {
+	    $(this).prop('Counter',0).animate({
+	        Counter: $(this).text()
+	    }, {
+	        duration: 3000,
+	        easing: 'swing',
+	        step: function (now) {
+	            $(this).text(Math.ceil(now));
+	        }
+	    });
+	});
+==========================================================
