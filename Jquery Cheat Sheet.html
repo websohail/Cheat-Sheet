@@ -29,7 +29,7 @@ $(function(){
         {
            $(".textcolorbox").hide();
         } 
-
+    ======================================================    
     $(document).on("click", function(event){
     	var $trigger = $('#search_icon_div, #search_row');
 
@@ -360,7 +360,7 @@ $(function(){
                            }
                      });
                 });
-
+    ======================================================            
 <!--Another Dot Each Function -->                
 $('#main_div').children('div').each(function(){
   console.log($(this).attr('id'));
@@ -386,7 +386,7 @@ var fixmeTop = $(".reportContentSec").offset().top;
               $(".fixedHeader").removeClass("active")
           }
       });
-
+      ======================================================
 here is active class css
 .active{
     display: block;
@@ -407,7 +407,7 @@ var fixmeTop = $(".staticContentSec").offset().top;
           $( ".bottomContactSec" ).removeClass("active");
       }
   });
-
+  	======================================================
   function isScrolledIntoView(elem) {
     var docViewTop = $(window).scrollTop();    
     var docViewBottom = docViewTop + $(window).height();
@@ -638,4 +638,3 @@ $(document).ready(function(){
 	        $('#progress-bar').css('width', scrollPercent + '%');
 	    });
 	});
-
