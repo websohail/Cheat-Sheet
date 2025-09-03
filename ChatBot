@@ -71,35 +71,10 @@ function getBotResponse(input) {
     const responses = {
         "hello": "Hi there! How can I help you?",
         "how are you": "I'm just a bot, but I'm doing great! How about you?",
-        "how big is the bicycle shoe market": "The bicycle shoe market is valued at USD 1.22 billion in 2023.",
-        "what is the anticipated cagr during the assessment period": "the anticipated cagr is 5.5% for 2024 to 2034.",
-        "what will the worth of global blow molded plastic industry by 2034 end": "the global blow molded plastic industry is anticipated to reach usd 128.5 billion by 2034 end.",
-        "what is the future of global blow molded plastic industry": "the global blow molded plastic industry is projected to witness cagr of 5.3% between 2024 and 2034.",
-        "what is the future of colorimetric indicator labels industry": "the colorimetric indicator labels industry is projected to witness cagr of 6.9% between 2024 and 2034.",
-        "what is cagr for Bundling Machine Market": "south asia & pacific is set to record a cagr of 5.9% in assessment period.",
-        "what will be the market value by 2034": "the market value will reach usd 2.5 billion.",
-        "what is the estimated market value in 2024": "the market value is estimated at usd 1.4 billion.",
-        "how big is the polyethylene pipe market expected in 2024": "the demand for polyethylene pipe market is set to reach usd 33,448.7 million in 2024.",
-        "how big is the global industry": "the global market is set to reach usd 4,284.0 million in 2024.",
-        "what will drive the demand for peptone during the forecast period": "the global probiotics market is expanding due to growing awareness of gut health. peptone-based media enable the cultivation of beneficial bacteria such as lactobacillus and bifidobacterium, which are central to probiotic formulations to drive the demand for peptone during the forecast period.",
-        "what is the projected growth rate for the air purifier market": "the air purifier market is expected to record a cagr of ~13.7% during the forecast period.",
-        "what is the global aloe vera gel market value": "the global aloe vera gel market reached a valuation of usd 345.6 million in 2024.",
-        "what is the current market value of the destination marketing sector": "the destination marketing sector is valued at usd 155.2 billion in 2024.",
-        "in which european country will the cagr be high": "the united kingdom is set to exhibit growth at a cagr of 14%.",
-        "what is the future of global photonic sensors & detectors industry": "the industry is projected to witness cagr of 8.2% between 2024 and 2034.",
-        "what is the future of global submarine communication cables markets": "the global submarine communication cables industry is projected to witness cagr of 6.2% between 2024 and 2034.",
-        "what is the future of global customer engagement solutions industry": "the global customer engagement solutions industry is projected to witness cagr of 15.4% between 2024 and 2034.",
-        "how is the demand increasing": "demand is predicted to rise at 17.7% cagr.",
-        "which region will garner a significant value share by 2024": "the north american is projected to hold a revenue share of 28.7 % over the forecast period.",
-        "what is the current value of the npk fertilizers industry": "the global market is estimated at a value of usd 3,196.7 million in 2024.",
-        "at what rate will the industry grow": "throughout the forecast period, the market is expected to grow at a cagr of 5.5%.",
-        "who are the key players in manufacturing": "some of the key players in manufacturing include chr hansen a/s, aarkay food products, fmc corporation, basf se, dohler group, lycored, kemin industries inc, cyanotech corporation, divis laboratories, allied biotech corporation, d. williamson & co. inc., kalsec inc., basf se, akay group, sensient technology corporation, wild flavors, avt natural products, naturex group and other players.",
-        "who are the leading manufacturers of brewing enzymes": "some of the leaders in this industry include novozymes, international flavors & fragrances inc., dowdupont, dsm, amano enzyme, associated british foods, chr. hansen holdings, kerry group, brenntag, aumgene biosciences, enzyme development corporation, megazyme, enzyme innovation, a group soufflet company, nature bioscience pvt. ltd., biolaxi corporation, ultreze enzymes, and infinita biotech and many others.",
-
         "bye": "Goodbye! Have a great day!",
     };
 
-    return responses[input.toLowerCase()] || "Apologies for any confusion! My AI knowledge is only focused on Market Research. Please rephrase your query and I'll be happy to assist you.";
+    return responses[input.toLowerCase()] || "Apologies for any confusion! My AI knowledge is only focused on Web Development. Please rephrase your query and I'll be happy to assist you.";
 }
 
     function botTypingEffect(element, message) {
