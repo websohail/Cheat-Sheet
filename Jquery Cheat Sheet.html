@@ -644,7 +644,7 @@ $(document).ready(function(){
     $(window).scroll(function () {
         var a = $(window).scrollTop();
         var aside_div1_width = $(".aside_div1").css("width"); //get default width of our sticky div
-        if (a >= asideStickyDiv) {
+        if (a >= targetDiv) {
             $(".aside_div1").addClass("sticky_aside_Div"); //our sticky div
             $(".sticky_aside_Div").css("width", aside_div1_width);
         } else {
