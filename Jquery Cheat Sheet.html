@@ -638,3 +638,21 @@ $(document).ready(function(){
 	        $('#progress-bar').css('width', scrollPercent + '%');
 	    });
 	});
+============================================================
+ // Sticky Aside Div On Scroll when specify targeted div is crossed(scroll) up.
+    var targetDiv = $(".quick_contact_box").offset().top; //div after which we need our sticky div 
+    $(window).scroll(function () {
+        var a = $(window).scrollTop();
+        var aside_div1_width = $(".aside_div1").css("width"); //get default width of our sticky div
+        if (a >= asideStickyDiv) {
+            $(".aside_div1").addClass("sticky_aside_Div"); //our sticky div
+            $(".sticky_aside_Div").css("width", aside_div1_width);
+        } else {
+            $(".aside_div1").removeClass("sticky_aside_Div");
+        }
+        if($('.aside_div1').offset().top + $('.aside_div1').height() >= $('.buy_div').offset().top - 40){ //div after which we dont want sticky div
+            $(".aside_div1").removeClass("sticky_aside_Div");
+        }
+    });	
+	// CSS
+	.sticky_aside_Div{position: fixed;top: 75px;display: block;z-index:2}
