@@ -656,3 +656,42 @@ $(document).ready(function(){
     });	
 	// CSS
 	.sticky_aside_Div{position: fixed;top: 75px;display: block;z-index:2}
+
+=======================================================================
+<!-- Dynamic ID for tabs click content show hide small function-->
+<!-- HTML -->
+<div class="methodology_tabs d-flex">
+	<button class="tab tab_1 tab_active" onclick="showTab(1)">Overview</button>
+	<button class="tab tab_2" onclick="showTab(2)">B2B (All Industries)</button>
+	<button class="tab tab_3" onclick="showTab(3)">B2C / Retail</button>
+</div>
+<div class="tab_content">
+	<div class="tab_div pt-4" id="tab_1_body">
+		<p class="fontp t-black4 lh-24">Tab 1 content</p>
+	</div>
+	<div class="tab_div pt-4" id="tab_2_body">
+		<p class="fontp t-black4 lh-24">Tab 2 content</p>
+	</div>
+	<div class="tab_div pt-4" id="tab_3_body">
+		<p class="fontp t-black4 lh-24">Tab 3 content</p>
+	</div>
+</div>
+
+<!-- CSS -->
+.methodology_tabs{border-bottom: 2px solid #dfdfdf;flex-wrap: nowrap}
+.methodology_tabs .tab{background-color: #fff;color: #555;border: none;border-bottom: 4px solid transparent;font-size:18px;font-weight:500;width: 100%;padding: 8px 0px;line-height: 30px;cursor: pointer;outline: none}
+.methodology_tabs .tab_active{background: #fafafa;color: #0667ac;border-bottom: 4px solid #91c63e;font-size: 18px;font-weight:400;}
+.methodology_tabs .tab_1.tab_active{border-bottom: 4px solid #0868ad}
+.methodology_tabs .tab_2.tab_active{border-bottom: 4px solid #8e278c}
+.methodology_tabs .tab_3.tab_active{border-bottom: 4px solid #91c63e}
+#tab_2_body,#tab_3_body,#tab_4_body,#tab_5_body,#tab_6_body,#tab_7_body{display: none}
+
+<!-- Js -->
+function showTab(value){
+  	var tab =  '#tab_' + value + '_body';
+  	$(tab).show();
+	$(tab).siblings().hide();
+	$(this).addClass('tab_active');
+	$(this).siblings().removeClass('tab_active');
+  }				
+=======================================================================================================================				
