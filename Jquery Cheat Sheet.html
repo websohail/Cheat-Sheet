@@ -688,10 +688,10 @@ $(document).ready(function(){
 
 <!-- Js -->
 function showTab(value){
-  	var tab =  '#tab_' + value + '_body';
-  	$(tab).show();
+	var tab =  '#tab_' + value + '_body';
+	$(tab).show();
 	$(tab).siblings().hide();
-	$(this).addClass('tab_active');
-	$(this).siblings().removeClass('tab_active');
-  }				
+	$('.tab_' + value).addClass('tab_active');
+	$('.tab_' + value).siblings().removeClass('tab_active');
+  } 				
 =======================================================================================================================				
